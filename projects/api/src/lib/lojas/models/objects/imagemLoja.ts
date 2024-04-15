@@ -1,5 +1,5 @@
 export class ImagemLoja{
-    banner: string;
-    loho: string;
-    icon: string;
+    banner?: string;
+    loho?: string;
+    icon?: string;
 }

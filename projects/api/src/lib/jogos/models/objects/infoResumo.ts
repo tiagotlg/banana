@@ -1,5 +1,5 @@
 export class InfoResumo{
-    titulo: string;
-    streamId: string;
-    thumb: string;
+    titulo?: string;
+    streamId?: string;
+    thumb?: string;
 }

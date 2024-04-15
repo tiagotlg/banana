@@ -1,4 +1,4 @@
 export class MaisBaratoSempre{
-    precoMaisBarato: string;
-    data: string;
+    precoMaisBarato?: string;
+    data?: string;
 }
