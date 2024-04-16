@@ -27,19 +27,19 @@ export class HeaderComponent {
   ) { }
 
   pesquisarJogo(event: any): void {
-    // const requestJogos = new ObterJogosRequest(event.target.value)
-    // this.service.obterJogos(requestJogos).subscribe(o => console.log(o))
+    const requestJogos = new ObterJogosRequest(event.target.value)
+    this.service.obterJogos(requestJogos).subscribe(o => console.log(o))
 
-    // const requestJogo = new ObterJogoRequest('612')
-    // this.service.obterJogo(requestJogo).subscribe(o => console.log(o))
+    const requestJogo = new ObterJogoRequest('612')
+    this.service.obterJogo(requestJogo).subscribe(o => console.log(o))
 
     // this.lojaService.obterLoja().subscribe(o => console.log(o))
 
     // const requestListaDescontos = new ObterListaDescontoRequest('1', '15', '')
     // this.descontoService.obterListaDescontos(requestListaDescontos).subscribe(o => console.log(o))
 
-    const requestDesconto = new ObterDescontoRequest('qUoxvgFJumq01yMxEcQbC5pUbeyYIdj%252BDd70RFxFCrI%253D')
-    this.descontoService.obterDesconto(requestDesconto).subscribe(o => console.log(o))
+    // const requestDesconto = new ObterDescontoRequest('qUoxvgFJumq01yMxEcQbC5pUbeyYIdj%252BDd70RFxFCrI%253D')
+    // this.descontoService.obterDesconto(requestDesconto).subscribe(o => console.log(o))
 
     this.router.navigate(['/search'], { relativeTo: this.activatedRoute });
   }
