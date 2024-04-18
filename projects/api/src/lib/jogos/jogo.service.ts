@@ -16,8 +16,8 @@ export class JogoService {
     return `https://localhost:40000/api/v1/Jogo`
   }
 
-  obterJogos(request: ObterJogosRequest): Observable<Jogos> {
-    return this.http.get<Jogos>(`${this.url()}/BuscaPorNome/${request.nome}`)
+  obterJogos(request: ObterJogosRequest): Observable<Jogos[]> {
+    return this.http.get<Jogos[]>(`${this.url()}/BuscaPorNome/${request.nome}`)
       .pipe(map(o => o));
   }
 

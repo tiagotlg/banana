@@ -11,8 +11,28 @@
                 <div class="col-12">
                     <h3>{{entidade.externo}}</h3>
                 </div>
-                <div *ngFor="let loja of lojas" class="col-2">
-                    <p>{{loja?.lojaId}}</p>
+                <div *ngFor="let loja of entidade.lojas" class="col-2">
+                    <ng-container [ngSwitch]="loja.lojaId">
+                        <div *ngSwitchCase="1">
+                            <img src="./assets/steam-icon.png" class="max-w-2rem">
+                            <p>Steam</p>
+                        </div>
+                        <div *ngSwitchCase="7">
+                            <p>GOG</p>
+                        </div>
+                        <div *ngSwitchCase="8">
+                            <p>Origin</p>
+                        </div>
+                        <div *ngSwitchCase="13">
+                            <p>Uplay</p>
+                        </div>
+                        <div *ngSwitchCase="25">
+                            <p>Epic Games Store</p>
+                        </div>
+                        <div *ngSwitchCase="31">
+                            <p>Blizzard Shop</p>
+                        </div>
+                    </ng-container>
                 </div>
             </div>
         </div>

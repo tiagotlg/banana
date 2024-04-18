@@ -30,8 +30,7 @@ export class HeaderComponent {
     const requestJogos = new ObterJogosRequest(event.target.value)
     this.service.obterJogos(requestJogos).subscribe(o => console.log(o))
 
-    const requestJogo = new ObterJogoRequest('612')
-    this.service.obterJogo(requestJogo).subscribe(o => console.log(o))
+    // this.service.obterJogo(requestJogo).subscribe(o => console.log(o))
 
     // this.lojaService.obterLoja().subscribe(o => console.log(o))
 

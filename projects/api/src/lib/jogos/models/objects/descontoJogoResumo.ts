@@ -1,5 +1,5 @@
 export class DescontoJogoResumo{
-    lojaId?: string;
+    lojaId?: number;
     descontoId?: string;
     precoDesconto?: string;
     precoOriginal?: string;
