@@ -1,12 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Jogo, Jogos } from 'projects/api/src/lib/jogos';
+import { Jogos } from 'projects/api/src/lib/jogos';
 import { JogoService } from 'projects/api/src/lib/jogos/jogo.service';
-import { DescontoJogoResumo } from 'projects/api/src/lib/jogos/models/objects/descontoJogoResumo';
-import { ObterJogoRequest } from 'projects/api/src/lib/jogos/models/requests/obter-jogo-request';
 import { ObterJogosRequest } from 'projects/api/src/lib/jogos/models/requests/obter-jogos-request';
-import { LojaService } from 'projects/api/src/lib/lojas/loja.service';
-import { exhaustMap, Subscription, tap } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'web-search',
@@ -21,7 +18,6 @@ export class SearchComponent {
 
     constructor(
         private service: JogoService,
-        private lojaService: LojaService
     ) { }
 
     pesquisarJogo(event: any): void {
