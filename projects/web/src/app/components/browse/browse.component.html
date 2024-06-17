@@ -1,1 +1,27 @@
-<p>browse works!</p>
+<div class="my-5">
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <div class="flex justify-content-center">
+      <div class="mx-3">
+        <button type="button" (click)="lojas()">Lojas</button>
+      </div>
+      <div class="w-2 mx-3 flex align-items-center">
+        <p-slider class="mr-2 w-7" [min]="0" [max]="50" formControlName="preco"></p-slider>
+        <label>$0 - $50</label>
+      </div>
+      <div class="w-2 mx-3 flex align-items-center">
+        <p-slider class="mr-2 w-7" [min]="0" [max]="100" formControlName="porcentagem"></p-slider>
+        <label>%</label>
+      </div>
+    </div>
+    
+
+    <!-- Seção para seleção de lojas -->
+    <p-dialog header="Stores to Display in Results" [(visible)]="mostrarSelecaoLojas" [modal]="true" [responsive]="true" class="w-30rem">
+      <p-multiSelect [options]="lojasDisponiveis" [(ngModel)]="lojasSelecionadas" (onChange)="onLojasChange($event)" formControlName="lojas" defaultLabel="Select Stores">
+      </p-multiSelect>
+      <div class="flex justify-content-center mt-3">
+        <button type="button" (click)="fecharDialog()">OK</button>
+      </div>
+    </p-dialog>
+  </form>
+</div>

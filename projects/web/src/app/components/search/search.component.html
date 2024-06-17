@@ -3,47 +3,28 @@
         <input type="text" class="col-4 my-5" (keyup.enter)="pesquisarJogo($event)" />
     </div>
     <div *ngFor="let entidade of entidades">
-        <div *ngIf="entidade.lojas.length" class="grid w-full flex justify-content-start">
+        <div (click)="clicado(entidade)" class="grid w-full flex justify-content-start">
             <div class="boxArtContainer mr-3 mb-4">
                 <div class="boxArt" style="background-image: url({{entidade.thumb}})"></div>
             </div>
             <div class="grid">
                 <div class="col-12">
-                    <h3>{{entidade.externo}}</h3>
+                    <label>{{entidade.externo}}</label>
                 </div>
-                <div *ngFor="let loja of entidade.lojas" class="col-2">
-                    <ng-container [ngSwitch]="loja.lojaId" class="flex">
-                        <div *ngSwitchCase="1" class="justify-content-center">
-                            <img src="./assets/steam-icon.png" class="max-w-2rem">
-                            <p>Steam</p>
-                            <p>${{loja.precoDesconto}}</p>
+                <div *ngIf="!aberto" class="col-12">
+                    <div>
+                        <label>Preço mais barato:</label>
+                    </div>
+                    <div>
+                        <label>${{entidade.maisBarato}}</label>
+                    </div>
+                </div>
+                <div *ngIf="aberto" class="col-12">
+                    <div *ngFor="let lojas of jogo.descontoJogoResumo" class="flex">
+                        <div>
+                            <label>{{lojas.lojaId}}</label>
                         </div>
-                        <div *ngSwitchCase="7" class="justify-content-center">
-                            <img src="./assets/GOG-icon.png" class="max-w-2rem">
-                            <p>GOG</p>
-                            <p>${{loja.precoDesconto}}</p>
-                        </div>
-                        <div *ngSwitchCase="8" class="justify-content-center">
-                            <img src="./assets/origin-icon.png" class="max-w-2rem">
-                            <p>Origin</p>
-                            <p>${{loja.precoDesconto}}</p>
-                        </div>
-                        <div *ngSwitchCase="13" class="justify-content-center">
-                            <img src="./assets/uplay-icon.png" class="max-w-2rem">
-                            <p>Uplay</p>
-                            <p>${{loja.precoDesconto}}</p>
-                        </div>
-                        <div *ngSwitchCase="25" class="justify-content-center">
-                            <img src="./assets/epic-games-store-icon.png" class="max-w-2rem">
-                            <p>Epic Games Store</p>
-                            <p>${{loja.precoDesconto}}</p>
-                        </div>
-                        <div *ngSwitchCase="31" class="justify-content-center">
-                            <img src="./assets/blizzard-shop-icon.png" class="max-w-2rem">
-                            <p>Blizzard Shop</p>
-                            <p>${{loja.precoDesconto}}</p>
-                        </div>
-                    </ng-container>
+                    </div>
                 </div>
             </div>
         </div>

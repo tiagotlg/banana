@@ -4,6 +4,7 @@ import { Desconto, ListaDescontos } from './models';
 import { map, Observable } from 'rxjs';
 import { ObterListaDescontoRequest } from './models/requests/obter-lista-descontos-request';
 import { ObterDescontoRequest } from './models/requests/obter-desconto-request';
+import { ObterListaDescontoMenorRequest } from './models/requests/obter-lista-descontos-request copy';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,11 @@ export class DescontoService {
 
   obterListaDescontos(request: ObterListaDescontoRequest): Observable<ListaDescontos> {
     return this.http.post<ListaDescontos>(`${this.url()}/BuscaPorDescontos`, request)
+      .pipe(map(o => o));
+  }
+
+  obterListaDescontosMenor(request: ObterListaDescontoMenorRequest): Observable<ListaDescontos> {
+    return this.http.post<ListaDescontos>(`${this.url()}/BuscaPorDescontosMenor`, request)
       .pipe(map(o => o));
   }
 
